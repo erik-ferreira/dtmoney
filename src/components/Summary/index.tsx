@@ -2,14 +2,35 @@ import { useContext } from "react";
 
 import { TransactionsContext } from "../../TransactionsContext";
 
+import TotalImg from "../../assets/total.svg";
 import IncomeImg from "../../assets/income.svg";
 import OutcomeImg from "../../assets/outcome.svg";
-import TotalImg from "../../assets/total.svg";
+
+import { formatMoneyBRL } from "../../utils/format";
 
 import { Container } from "./styles";
 
 export function Summary() {
   const { transactions } = useContext(TransactionsContext);
+
+  const summary = transactions.reduce(
+    (acc, transaction) => {
+      if (transaction.type === "deposit") {
+        acc.deposits += transaction.amount;
+        acc.total += transaction.amount;
+      } else {
+        acc.withdrawals += transaction.amount;
+        acc.total -= transaction.amount;
+      }
+
+      return acc;
+    },
+    {
+      deposits: 0,
+      withdrawals: 0,
+      total: 0,
+    }
+  );
 
   return (
     <Container>
@@ -20,7 +41,7 @@ export function Summary() {
           <img src={IncomeImg} alt="Entradas" />
         </header>
 
-        <strong>R$ 1000,00</strong>
+        <strong>{formatMoneyBRL(summary.deposits)}</strong>
       </div>
 
       <div>
@@ -30,7 +51,7 @@ export function Summary() {
           <img src={OutcomeImg} alt="Saídas" />
         </header>
 
-        <strong> - R$ 500,00 </strong>
+        <strong> - {formatMoneyBRL(summary.withdrawals)} </strong>
       </div>
 
       <div className="highlight-background">
@@ -40,7 +61,7 @@ export function Summary() {
           <img src={TotalImg} alt="Total" />
         </header>
 
-        <strong>R$ 5000,00</strong>
+        <strong>{formatMoneyBRL(summary.total)}</strong>
       </div>
     </Container>
   );
