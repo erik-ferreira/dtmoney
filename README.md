@@ -1,46 +1,30 @@
-# Getting Started with Create React App
+<h1 align="center">
+    <img src=".github/logo.svg" width="400px">
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p>
+    <img src=".github/dt-money.png" width="100%">
+</p>
 
-## Available Scripts
+## :rocket: Tecnologias
 
-In the project directory, you can run:
+Foram usadas as seguintes tecnologias:
 
-### `yarn start`
+- [ReactJS](https://reactjs.org)
+- [Typescript](https://www.typescriptlang.org)
+- [Styled-Components](https://styled-components.com)
+- [MirageJS](https://miragejs.com)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## :computer: Projeto
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+O dt money é uma aplicação desenvolvida durante o ignite da [Rocketseat](https://www.rocketseat.com.br) para controle de finanças, com cadastro de entradas e saídas. Apesar de ser uma aplicação simples, além de dar uma força a mais em conteúdos que já tinha visto, puder aprender coisas novas, como o uso do MirageJS.
 
-### `yarn test`
+O [MirageJS](https://miragejs.com) é uma biblioteca para mocar os dados, dessa forma o desenvolvimento do frontend pode continuar avançando sem depender diretamente do backend.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## :thinking: Como rodar o projeto?
 
-### `yarn build`
+1. Primeiramente faça o clone do projeto com `git clone https://github.com/erik-ferreira/dtmoney.git`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Execute `yarn` para instalar as dependências
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Depois basta executar `yarn start` para rodar o projeto
