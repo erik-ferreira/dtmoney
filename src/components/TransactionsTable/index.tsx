@@ -1,37 +1,27 @@
-import { useTransactions } from "../../hooks/useTransactions";
-
-import { formatDateBRL, formatMoneyBRL } from "../../utils/format";
-
-import { Container } from "./styles";
+import { TransactionsTableContainer, PriceHighlight } from "./styles";
 
 export function TransactionsTable() {
-  const { transactions } = useTransactions();
-
   return (
-    <Container>
-      <table>
-        <thead>
-          <tr>
-            <th>Título</th>
-            <th>Valor</th>
-            <th>Categoria</th>
-            <th>Data</th>
-          </tr>
-        </thead>
+    <TransactionsTableContainer>
+      <tbody>
+        <tr>
+          <td>Desenvolvimento de site</td>
+          <td>
+            <PriceHighlight variant="income">R$ 12.000,00</PriceHighlight>
+          </td>
+          <td>Venda</td>
+          <td>14/03/2023</td>
+        </tr>
 
-        <tbody>
-          {transactions.map((transaction) => (
-            <tr key={transaction.id}>
-              <td>{transaction.title}</td>
-              <td className={transaction.type}>
-                {formatMoneyBRL(transaction.amount)}
-              </td>
-              <td>{transaction.category}</td>
-              <td>{formatDateBRL(new Date(transaction.createdAt))}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </Container>
+        <tr>
+          <td>Compras de supermercado</td>
+          <td>
+            <PriceHighlight variant="outcome">- R$ 6.000,00</PriceHighlight>
+          </td>
+          <td>Alimentação</td>
+          <td>25/03/2023</td>
+        </tr>
+      </tbody>
+    </TransactionsTableContainer>
   );
 }
