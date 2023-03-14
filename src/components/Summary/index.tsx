@@ -1,3 +1,5 @@
+import { ArrowCircleUp, ArrowCircleDown, CurrencyDollar } from "phosphor-react";
+
 import { useTransactions } from "../../hooks/useTransactions";
 
 import TotalImg from "../../assets/total.svg";
@@ -6,61 +8,61 @@ import OutcomeImg from "../../assets/outcome.svg";
 
 import { formatMoneyBRL } from "../../utils/format";
 
-import { Container } from "./styles";
+import { SummaryContainer, SummaryCard } from "./styles";
 
 export function Summary() {
-  const { transactions } = useTransactions();
+  // const { transactions } = useTransactions();
 
-  const summary = transactions.reduce(
-    (acc, transaction) => {
-      if (transaction.type === "deposit") {
-        acc.deposits += transaction.amount;
-        acc.total += transaction.amount;
-      } else {
-        acc.withdrawals += transaction.amount;
-        acc.total -= transaction.amount;
-      }
+  // const summary = transactions.reduce(
+  //   (acc, transaction) => {
+  //     if (transaction.type === "deposit") {
+  //       acc.deposits += transaction.amount;
+  //       acc.total += transaction.amount;
+  //     } else {
+  //       acc.withdrawals += transaction.amount;
+  //       acc.total -= transaction.amount;
+  //     }
 
-      return acc;
-    },
-    {
-      deposits: 0,
-      withdrawals: 0,
-      total: 0,
-    }
-  );
+  //     return acc;
+  //   },
+  //   {
+  //     deposits: 0,
+  //     withdrawals: 0,
+  //     total: 0,
+  //   }
+  // );
 
   return (
-    <Container>
-      <div>
+    <SummaryContainer>
+      <SummaryCard>
         <header>
-          <p>Entradas</p>
+          <span>Entradas</span>
 
-          <img src={IncomeImg} alt="Entradas" />
+          <ArrowCircleUp size={32} color="#00B37E" />
         </header>
 
-        <strong>{formatMoneyBRL(summary.deposits)}</strong>
-      </div>
+        <strong>R$ 17.400,00</strong>
+      </SummaryCard>
 
-      <div>
+      <SummaryCard>
         <header>
-          <p>Saídas</p>
+          <span>Saídas</span>
 
-          <img src={OutcomeImg} alt="Saídas" />
+          <ArrowCircleDown size={32} color="#f75a68" />
         </header>
 
-        <strong> - {formatMoneyBRL(summary.withdrawals)} </strong>
-      </div>
+        <strong>R$ 17.400,00</strong>
+      </SummaryCard>
 
-      <div className="highlight-background">
+      <SummaryCard variant="green">
         <header>
-          <p>Total</p>
+          <span>Total</span>
 
-          <img src={TotalImg} alt="Total" />
+          <CurrencyDollar size={32} color="#fff" />
         </header>
 
-        <strong>{formatMoneyBRL(summary.total)}</strong>
-      </div>
-    </Container>
+        <strong>R$ 17.400,00</strong>
+      </SummaryCard>
+    </SummaryContainer>
   );
 }
