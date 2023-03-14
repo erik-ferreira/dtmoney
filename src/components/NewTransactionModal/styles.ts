@@ -1,99 +1,73 @@
 import styled from "styled-components";
-import { darken, transparentize } from "polished";
+import * as Dialog from "@radix-ui/react-dialog";
 
-export const Container = styled.form`
-  h2 {
-    color: var(--text-title);
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-  }
+export const Overlay = styled(Dialog.Overlay)`
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+`;
 
-  input {
-    width: 100%;
-    padding: 0 1.5rem;
-    height: 4rem;
-    border-radius: 0.25rem;
+export const Content = styled(Dialog.Content)`
+  min-width: 32rem;
+  padding: 2.5rem 3rem;
+  border-radius: 6px;
+  background-color: ${(props) => props.theme["gray-800"]};
 
-    border: 1px solid var(--border-input);
-    background-color: var(--input-background);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-    font-weight: 400;
-    font-size: 1rem;
+  form {
+    margin-top: 2rem;
 
-    &::placeholder {
-      color: var(--text-body);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    input {
+      border: 0;
+      border-radius: 6px;
+      padding: 1rem;
+      color: ${(props) => props.theme["gray-300"]};
+      background-color: ${(props) => props.theme["gray-900"]};
+
+      &::placeholder {
+        color: ${(props) => props.theme["gray-500"]};
+      }
     }
 
-    & + input {
-      margin-top: 1rem;
-    }
-  }
+    button[type="submit"] {
+      height: 58px;
+      color: ${(props) => props.theme.white};
+      background-color: ${(props) => props.theme["green-500"]};
 
-  button[type="submit"] {
-    width: 100%;
-    padding: 0 1.5rem;
-    height: 4rem;
-    background-color: var(--green);
-    color: #fff;
-    border-radius: 0.25rem;
-    border: 0;
-    font-size: 1rem;
-    font-weight: 600;
-    margin-top: 1.25rem;
+      border: 0;
+      border-radius: 6px;
+      padding: 0 1.25rem;
+      margin-top: 1.5rem;
 
-    transition: filter 0.2s;
+      font-weight: bold;
+      cursor: pointer;
 
-    &:hover {
-      filter: brightness(0.9);
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: ${(props) => props.theme["green-700"]};
+      }
     }
   }
 `;
 
-export const TransactionsTypeContainer = styled.div`
-  margin: 1rem 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
-`;
-
-interface RadioBoxProps {
-  isActive: boolean;
-  activeColor: "green" | "red";
-}
-
-const colors = {
-  green: "#33cc95",
-  red: "#e52e4d",
-};
-
-export const RadioBox = styled.button<RadioBoxProps>`
-  height: 4rem;
-  border: 1px solid var(--border-input);
-
-  background-color: ${(props) =>
-    props.isActive
-      ? transparentize(0.9, colors[props.activeColor])
-      : "transparent"};
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transition: border-color 0.2s;
-
-  &:hover {
-    border-color: ${darken(0.1, "#d7d7d7")};
-  }
-
-  img {
-    width: 20px;
-    height: 20px;
-  }
-
-  span {
-    display: inline-block;
-    margin-left: 1rem;
-    font-size: 1rem;
-    color: var(--text-title);
-  }
+export const CloseButton = styled(Dialog.Close)`
+  position: absolute;
+  background-color: transparent;
+  border: 0;
+  top: 1.5rem;
+  right: 1.5rem;
+  cursor: pointer;
+  line-height: 0;
+  color: ${(props) => props.theme["gray-500"]};
 `;
