@@ -1,5 +1,7 @@
 import { useTransactions } from "../../contexts/TransactionsContext";
 
+import { formatMoneyBRL, formatDateBRL } from "../../utils/format";
+
 import { TransactionsTableContainer, PriceHighlight } from "./styles";
 
 export function TransactionsTable() {
@@ -13,11 +15,12 @@ export function TransactionsTable() {
             <td>{transaction.description}</td>
             <td>
               <PriceHighlight variant={transaction.type}>
-                {transaction.price}
+                {transaction.type === "outcome" && "- "}
+                {formatMoneyBRL(transaction.price)}
               </PriceHighlight>
             </td>
             <td>{transaction.category}</td>
-            <td>{transaction.createdAt}</td>
+            <td>{formatDateBRL(new Date(transaction.createdAt))}</td>
           </tr>
         ))}
       </tbody>
