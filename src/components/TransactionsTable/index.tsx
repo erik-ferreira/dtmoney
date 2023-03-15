@@ -1,19 +1,10 @@
+import { useTransactions } from "../../contexts/TransactionsContext";
+
 import { TransactionsTableContainer, PriceHighlight } from "./styles";
 
-export interface Transaction {
-  id: number;
-  description: string;
-  type: "income" | "outcome";
-  price: number;
-  category: string;
-  createdAt: string;
-}
+export function TransactionsTable() {
+  const { transactions } = useTransactions();
 
-interface TransactionsTableProps {
-  transactions: Transaction[];
-}
-
-export function TransactionsTable({ transactions }: TransactionsTableProps) {
   return (
     <TransactionsTableContainer>
       <tbody>

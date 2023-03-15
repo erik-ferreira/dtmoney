@@ -2,7 +2,7 @@ import { useState } from "react";
 import Modal from "react-modal";
 import { ThemeProvider } from "styled-components";
 
-import { TransactionsProvider } from "./hooks/useTransactions";
+import { AppContext } from "./contexts";
 
 import { Transactions } from "./pages/Transactions";
 
@@ -39,7 +39,9 @@ function App() {
 
       </TransactionsProvider> */}
 
-      <Transactions />
+      <AppContext>
+        <Transactions />
+      </AppContext>
 
       <GlobalStyle />
     </ThemeProvider>
