@@ -1,11 +1,16 @@
-import { useTransactions } from "../../contexts/TransactionsContext";
+import { useContextSelector } from "use-context-selector";
+
+import { TransactionsContext } from "../../contexts/TransactionsContext";
 
 import { formatMoneyBRL, formatDateBRL } from "../../utils/format";
 
 import { TransactionsTableContainer, PriceHighlight } from "./styles";
 
 export function TransactionsTable() {
-  const { transactions } = useTransactions();
+  const transactions = useContextSelector(
+    TransactionsContext,
+    (context) => context.transactions
+  );
 
   return (
     <TransactionsTableContainer>
