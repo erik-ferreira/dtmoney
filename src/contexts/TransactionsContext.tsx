@@ -17,6 +17,7 @@ interface Transaction {
 
 interface TransactionsContextType {
   transactions: Transaction[];
+  loadTransactions: (query?: string) => Promise<void>;
 }
 
 const TransactionsContext = createContext({} as TransactionsContextType);
@@ -28,8 +29,14 @@ interface TransactionsProviderProps {
 export function TransactionsProvider({ children }: TransactionsProviderProps) {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
-  async function loadTransactions() {
-    const response = await fetch("http://localhost:3333/transactions");
+  async function loadTransactions(query?: string) {
+    const url = new URL("http://localhost:3333/transactions");
+
+    if (query) {
+      url.searchParams.append("q", query);
+    }
+
+    const response = await fetch(url);
     const data = await response.json();
 
     setTransactions(data);
@@ -40,7 +47,7 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
   }, []);
 
   return (
-    <TransactionsContext.Provider value={{ transactions }}>
+    <TransactionsContext.Provider value={{ transactions, loadTransactions }}>
       {children}
     </TransactionsContext.Provider>
   );
