@@ -6,9 +6,7 @@ import logoImg from "../../assets/logo.svg";
 
 import { HeaderContainer, HeaderContent, NewTransactionButton } from "./styles";
 
-interface HeaderProps {}
-
-export function Header({}: HeaderProps) {
+export function Header() {
   return (
     <HeaderContainer>
       <HeaderContent>
