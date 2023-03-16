@@ -5,6 +5,7 @@ import {
   useState,
   useEffect,
 } from "react";
+import { api } from "../lib/axios";
 
 interface Transaction {
   id: number;
@@ -15,9 +16,18 @@ interface Transaction {
   createdAt: string;
 }
 
+interface CreateTransactionInputs {
+  description: string;
+  type: "income" | "outcome";
+  price: number;
+  category: string;
+}
+
 interface TransactionsContextType {
   transactions: Transaction[];
+
   loadTransactions: (query?: string) => Promise<void>;
+  createTransaction: (data: CreateTransactionInputs) => Promise<void>;
 }
 
 const TransactionsContext = createContext({} as TransactionsContextType);
@@ -30,16 +40,25 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
   async function loadTransactions(query?: string) {
-    const url = new URL("http://localhost:3333/transactions");
+    const response = await api.get("/transactions", {
+      params: { q: query, _sort: "createdAt", _order: "desc" },
+    });
 
-    if (query) {
-      url.searchParams.append("q", query);
-    }
+    setTransactions(response.data);
+  }
 
-    const response = await fetch(url);
-    const data = await response.json();
+  async function createTransaction(data: CreateTransactionInputs) {
+    const { description, type, price, category } = data;
 
-    setTransactions(data);
+    const response = await api.post<Transaction>("/transactions", {
+      description,
+      type,
+      price,
+      category,
+      createdAt: new Date(),
+    });
+
+    setTransactions((prevState) => [response.data, ...prevState]);
   }
 
   useEffect(() => {
@@ -47,7 +66,9 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
   }, []);
 
   return (
-    <TransactionsContext.Provider value={{ transactions, loadTransactions }}>
+    <TransactionsContext.Provider
+      value={{ transactions, loadTransactions, createTransaction }}
+    >
       {children}
     </TransactionsContext.Provider>
   );
