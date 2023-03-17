@@ -15,7 +15,7 @@ export function Transactions() {
 
       <TransactionsContainer>
         <SearchForm />
-        {/* <TransactionsTable /> */}
+        <TransactionsTable />
       </TransactionsContainer>
     </div>
   );

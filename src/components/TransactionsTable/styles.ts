@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
-export const TransactionsTableContainer = styled.table`
+export const TransactionsTableContainer = styled.div`
+  overflow-x: scroll;
+`;
+
+export const TransactionsTableContent = styled.table`
+  min-width: 630px;
   width: 100%;
   border-collapse: separate;
   border-spacing: 0 0.5rem;
