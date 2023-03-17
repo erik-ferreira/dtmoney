@@ -25,6 +25,8 @@ O [MirageJS](https://miragejs.com) é uma biblioteca para mocar os dados, dessa 
 
 1. Primeiramente faça o clone do projeto com `git clone https://github.com/erik-ferreira/dtmoney.git`
 
-2. Execute `yarn` para instalar as dependências
+2. Execute `npm i` para instalar as dependências
 
-3. Depois basta executar `yarn start` para rodar o projeto
+3. Execute `npm run dev:server` para rodar json-server
+
+4. Depois basta executar `npm run dev` para rodar o projeto

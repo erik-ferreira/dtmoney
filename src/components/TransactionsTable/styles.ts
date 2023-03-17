@@ -1,38 +1,41 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  margin-top: 4rem;
+export const TransactionsTableContainer = styled.div`
+  @media screen and (max-width: 650px) {
+    overflow-x: scroll;
+  }
+`;
 
-  table {
-    width: 100%;
-    border-spacing: 0 0.5rem;
+export const TransactionsTableContent = styled.table`
+  min-width: 630px;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+  margin-top: 1.5rem;
 
-    th {
-      color: var(-text-body);
-      font-weight: 400;
-      padding: 1rem 2rem;
-      text-align: left;
-      line-height: 1.5rem;
+  td {
+    padding: 1.25rem 2rem;
+    background-color: ${(props) => props.theme["gray-700"]};
+
+    &:first-child {
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
     }
 
-    td {
-      padding: 1rem 2rem;
-      border: 0;
-      background-color: var(--shape);
-      color: var(--text-body);
-      border-radius: 0.25rem;
-
-      &:first-child {
-        color: var(--text-title);
-      }
-
-      &.deposit {
-        color: var(--green);
-      }
-
-      &.withdraw {
-        color: var(--red);
-      }
+    &:last-child {
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
     }
   }
+`;
+
+interface PriceHighlightProps {
+  variant: "income" | "outcome";
+}
+
+export const PriceHighlight = styled.span<PriceHighlightProps>`
+  color: ${(props) =>
+    props.variant === "income"
+      ? props.theme["green-300"]
+      : props.theme["red-300"]};
 `;

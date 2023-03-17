@@ -1,34 +1,48 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Container = styled.div`
+export const SummaryContainer = styled.section`
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  margin-top: -10rem;
 
-  div {
-    background: var(--shape);
-    padding: 1.5rem 2rem;
-    border-radius: 0.25rem;
-    color: var(--text-title);
-
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    strong {
-      display: block;
-      margin-top: 1rem;
-      font-size: 2rem;
-      font-weight: 500;
-      line-height: 3rem;
-    }
-
-    &.highlight-background {
-      background-color: var(--green);
-      color: #fff;
-    }
+  margin-top: -5rem;
+  @media screen and (max-width: 890px) {
+    padding-bottom: 10px;
+    overflow: scroll;
   }
+`;
+
+interface SummaryCardProps {
+  variant?: "green";
+}
+
+export const SummaryCard = styled.div<SummaryCardProps>`
+  min-width: 17.5rem;
+  background: ${(props) => props.theme["gray-600"]};
+  padding: 2rem;
+  border-radius: 6px;
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: ${(props) => props.theme["gray-300"]};
+  }
+
+  strong {
+    display: block;
+    margin-top: 1rem;
+    font-size: 2rem;
+  }
+
+  ${(props) =>
+    props.variant === "green" &&
+    css`
+      background-color: ${props.theme["green-700"]};
+    `}
 `;
