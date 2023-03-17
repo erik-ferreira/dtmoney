@@ -11,6 +11,10 @@ export const SummaryContainer = styled.section`
   gap: 2rem;
 
   margin-top: -5rem;
+  @media screen and (max-width: 890px) {
+    padding-bottom: 10px;
+    overflow: scroll;
+  }
 `;
 
 interface SummaryCardProps {
@@ -18,6 +22,7 @@ interface SummaryCardProps {
 }
 
 export const SummaryCard = styled.div<SummaryCardProps>`
+  min-width: 17.5rem;
   background: ${(props) => props.theme["gray-600"]};
   padding: 2rem;
   border-radius: 6px;
