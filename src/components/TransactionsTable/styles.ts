@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const TransactionsTableContainer = styled.div`
-  overflow-x: scroll;
+  @media screen and (max-width: 650px) {
+    overflow-x: scroll;
+  }
 `;
 
 export const TransactionsTableContent = styled.table`
