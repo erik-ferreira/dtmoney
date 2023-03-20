@@ -22,7 +22,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body { 
-    background-color: ${(props) => props.theme["background-800"]};
+    background-color: ${(props) => props.theme["background-body"]};
     color: ${(props) => props.theme["text-100"]};
     -webkit-font-smoothing: antialiased;
   }

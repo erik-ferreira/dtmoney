@@ -9,7 +9,7 @@ export const SearchFormContainer = styled.form`
     border: 0;
     border-radius: 6px;
     color: ${(props) => props.theme["text-300"]};
-    background-color: ${(props) => props.theme["background-900"]};
+    background-color: ${(props) => props.theme["background-input"]};
     padding: 1rem;
 
     &::placeholder {
@@ -24,8 +24,8 @@ export const SearchFormContainer = styled.form`
 
     border: 0;
     border-radius: 6px;
-    border: 1px solid ${(props) => props.theme["secondary-300"]};
-    color: ${(props) => props.theme["secondary-300"]};
+    border: 1px solid ${(props) => props.theme["secondary-400"]};
+    color: ${(props) => props.theme["secondary-400"]};
     background-color: transparent;
     padding: 1rem;
     font-weight: bold;

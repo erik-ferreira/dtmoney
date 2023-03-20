@@ -14,7 +14,7 @@ export const Content = styled(Dialog.Content)`
   min-width: 32rem;
   padding: 2.5rem 3rem;
   border-radius: 6px;
-  background-color: ${(props) => props.theme["background-800"]};
+  background-color: ${(props) => props.theme["background-modal"]};
 
   position: fixed;
   top: 50%;
@@ -33,7 +33,7 @@ export const Content = styled(Dialog.Content)`
       border-radius: 6px;
       padding: 1rem;
       color: ${(props) => props.theme["text-300"]};
-      background-color: ${(props) => props.theme["background-900"]};
+      background-color: ${(props) => props.theme["background-input"]};
 
       &::placeholder {
         color: ${(props) => props.theme["text-500"]};
@@ -106,7 +106,7 @@ export const TransactionTypeButton = styled(
   svg {
     color: ${(props) =>
       props.variant === "income"
-        ? props.theme["secondary-300"]
+        ? props.theme["green-300"]
         : props.theme["danger-300"]};
   }
 
@@ -124,6 +124,5 @@ export const TransactionTypeButton = styled(
 
   &[data-state="unchecked"]:hover {
     transition: background-color 0.2s;
-    background-color: ${(props) => props.theme["background-600"]};
   }
 `;

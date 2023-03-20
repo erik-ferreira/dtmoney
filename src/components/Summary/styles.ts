@@ -23,7 +23,7 @@ interface SummaryCardProps {
 
 export const SummaryCard = styled.div<SummaryCardProps>`
   min-width: 17.5rem;
-  background: ${(props) => props.theme["background-600"]};
+  background: ${(props) => props.theme["background-card"]};
   padding: 2rem;
   border-radius: 6px;
 
@@ -43,6 +43,11 @@ export const SummaryCard = styled.div<SummaryCardProps>`
   ${(props) =>
     props.variant === "total" &&
     css`
-      background-color: ${props.theme["secondary-700"]};
+      background-color: ${props.theme["background-card-total"]};
+
+      header,
+      strong {
+        color: ${(props) => props.theme.white};
+      }
     `}
 `;
