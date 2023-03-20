@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ThemeProvider } from "styled-components";
 
 import { AppContext } from "./contexts";
@@ -8,6 +9,8 @@ import { GlobalStyle } from "./styles/global";
 import { darkTheme } from "./styles/themes/dark";
 
 function App() {
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+
   return (
     <ThemeProvider theme={darkTheme}>
       <AppContext>

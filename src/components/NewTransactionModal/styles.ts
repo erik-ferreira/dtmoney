@@ -14,7 +14,7 @@ export const Content = styled(Dialog.Content)`
   min-width: 32rem;
   padding: 2.5rem 3rem;
   border-radius: 6px;
-  background-color: ${(props) => props.theme["primary-800"]};
+  background-color: ${(props) => props.theme["background-800"]};
 
   position: fixed;
   top: 50%;
@@ -32,11 +32,11 @@ export const Content = styled(Dialog.Content)`
       border: 0;
       border-radius: 6px;
       padding: 1rem;
-      color: ${(props) => props.theme["primary-300"]};
-      background-color: ${(props) => props.theme["primary-900"]};
+      color: ${(props) => props.theme["text-300"]};
+      background-color: ${(props) => props.theme["background-900"]};
 
       &::placeholder {
-        color: ${(props) => props.theme["primary-500"]};
+        color: ${(props) => props.theme["text-500"]};
       }
     }
 
@@ -73,7 +73,7 @@ export const CloseButton = styled(Dialog.Close)`
   right: 1.5rem;
   cursor: pointer;
   line-height: 0;
-  color: ${(props) => props.theme["primary-500"]};
+  color: ${(props) => props.theme["text-500"]};
 `;
 
 export const TransactionType = styled(RadioGroup.Root)`
@@ -95,8 +95,8 @@ export const TransactionTypeButton = styled(
   justify-content: center;
   gap: 0.5rem;
 
-  color: ${(props) => props.theme["primary-300"]};
-  background-color: ${(props) => props.theme["primary-700"]};
+  color: ${(props) => props.theme["text-300"]};
+  background-color: ${(props) => props.theme["background-700"]};
 
   border: 0;
   cursor: pointer;
@@ -124,6 +124,6 @@ export const TransactionTypeButton = styled(
 
   &[data-state="unchecked"]:hover {
     transition: background-color 0.2s;
-    background-color: ${(props) => props.theme["primary-600"]};
+    background-color: ${(props) => props.theme["background-600"]};
   }
 `;
