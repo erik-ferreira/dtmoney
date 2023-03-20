@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
-  background: ${(props) => props.theme["gray-900"]};
+  background: ${(props) => props.theme["background-header"]};
   padding: 2.5rem 0 7.5rem;
 `;
 
@@ -21,12 +21,17 @@ export const HeaderContent = styled.div`
       height: 25px;
     }
   }
+
+  @media screen and (max-width: 420px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
 `;
 
 export const NewTransactionButton = styled.button`
   height: 50px;
   border: 0;
-  background-color: ${(props) => props.theme["green-500"]};
+  background-color: ${(props) => props.theme["secondary-400"]};
   color: ${(props) => props.theme.white};
 
   font-weight: bold;
@@ -37,11 +42,17 @@ export const NewTransactionButton = styled.button`
   transition: background-color 0.2s;
 
   &:hover {
-    background-color: ${(props) => props.theme["green-700"]};
+    background-color: ${(props) => props.theme["secondary-500"]};
   }
 
   @media screen and (max-width: 375px) {
     height: 38px;
     padding: 0.5rem 1rem;
   }
+`;
+
+export const RightComponentHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 `;

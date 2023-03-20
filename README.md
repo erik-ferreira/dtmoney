@@ -2,9 +2,10 @@
     <img src=".github/logo.svg" width="400px">
 </h1>
 
-<p>
-    <img src=".github/dt-money.png" width="100%">
-</p>
+<div style="display: flex; align-items: center; justify-content: space-between;">
+    <img src=".github/dt-money-light.png" width="49%">
+    <img src=".github/dt-money-dark.png" width="49%">
+</div>
 
 ## :rocket: Tecnologias
 
@@ -14,12 +15,15 @@ Foram usadas as seguintes tecnologias:
 - [Typescript](https://www.typescriptlang.org)
 - [Styled-Components](https://styled-components.com)
 - [MirageJS](https://miragejs.com)
+- [JSON Server](https://github.com/typicode/json-server)
 
 ## :computer: Projeto
 
-O dt money é uma aplicação desenvolvida durante o ignite da [Rocketseat](https://www.rocketseat.com.br) para controle de finanças, com cadastro de entradas e saídas. Apesar de ser uma aplicação simples, além de dar uma força a mais em conteúdos que já tinha visto, puder aprender coisas novas, como o uso do MirageJS.
+O dt money é uma aplicação desenvolvida durante o ignite da [Rocketseat](https://www.rocketseat.com.br) para controle de finanças, com cadastro de entradas e saídas. Apesar de ser uma aplicação simples, além de dar uma força a mais em conteúdos que já tinha visto, pude aprender coisas novas, como o uso do MirageJS.
 
 O [MirageJS](https://miragejs.com) é uma biblioteca para mocar os dados, dessa forma o desenvolvimento do frontend pode continuar avançando sem depender diretamente do backend.
+
+Com uma atualização desse projeto para aprender um pouco mais sobre performance, removi o MirageJS e adicionei os dados com [json-server](https://github.com/typicode/json-server). Adicionei responsividade e também um dark mode.
 
 ## :thinking: Como rodar o projeto?
 

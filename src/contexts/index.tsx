@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 
+import { ThemeProvider } from "./ThemeContext";
 import { TransactionsProvider } from "./TransactionsContext";
 
 interface AppContextProps {
@@ -7,5 +8,9 @@ interface AppContextProps {
 }
 
 export function AppContext({ children }: AppContextProps) {
-  return <TransactionsProvider>{children}</TransactionsProvider>;
+  return (
+    <ThemeProvider>
+      <TransactionsProvider>{children}</TransactionsProvider>
+    </ThemeProvider>
+  );
 }
