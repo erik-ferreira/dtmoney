@@ -18,12 +18,12 @@ export const SummaryContainer = styled.section`
 `;
 
 interface SummaryCardProps {
-  variant?: "green";
+  variant?: "secondary";
 }
 
 export const SummaryCard = styled.div<SummaryCardProps>`
   min-width: 17.5rem;
-  background: ${(props) => props.theme["gray-600"]};
+  background: ${(props) => props.theme["primary-600"]};
   padding: 2rem;
   border-radius: 6px;
 
@@ -31,7 +31,7 @@ export const SummaryCard = styled.div<SummaryCardProps>`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: ${(props) => props.theme["gray-300"]};
+    color: ${(props) => props.theme["primary-300"]};
   }
 
   strong {
@@ -41,8 +41,8 @@ export const SummaryCard = styled.div<SummaryCardProps>`
   }
 
   ${(props) =>
-    props.variant === "green" &&
+    props.variant === "secondary" &&
     css`
-      background-color: ${props.theme["green-700"]};
+      background-color: ${props.theme["secondary-700"]};
     `}
 `;

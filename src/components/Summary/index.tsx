@@ -31,7 +31,7 @@ export function Summary() {
         <strong>{formatMoneyBRL(summary.outcome)}</strong>
       </SummaryCard>
 
-      <SummaryCard variant="green">
+      <SummaryCard variant="secondary">
         <header>
           <span>Total</span>
 
