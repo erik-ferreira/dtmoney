@@ -21,6 +21,11 @@ export const HeaderContent = styled.div`
       height: 25px;
     }
   }
+
+  @media screen and (max-width: 420px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
 `;
 
 export const NewTransactionButton = styled.button`
@@ -44,4 +49,10 @@ export const NewTransactionButton = styled.button`
     height: 38px;
     padding: 0.5rem 1rem;
   }
+`;
+
+export const RightComponentHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 `;
