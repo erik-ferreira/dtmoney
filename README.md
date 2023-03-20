@@ -2,9 +2,9 @@
     <img src=".github/logo.svg" width="400px">
 </h1>
 
-<div style="display: flex; align-items: center; gap: 0.5rem;">
-    <img src=".github/dt-money-light.png" width="50%">
-    <img src=".github/dt-money-dark.png" width="50%">
+<div style="display: flex; align-items: center; justify-content: space-between;">
+    <img src=".github/dt-money-light.png" width="49%">
+    <img src=".github/dt-money-dark.png" width="49%">
 </div>
 
 ## :rocket: Tecnologias
